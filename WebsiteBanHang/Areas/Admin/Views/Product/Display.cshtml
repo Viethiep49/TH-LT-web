@@ -1,0 +1,57 @@
+@model WebsiteBanHang.Models.Product
+
+@{
+    ViewData["Title"] = "Chi Tiết Sản Phẩm";
+}
+
+<div class="mb-4">
+    <a asp-action="Index" class="btn btn-outline-secondary btn-sm">
+        <i class="fas fa-arrow-left"></i> Quay lại danh mục
+    </a>
+</div>
+
+<div class="card shadow-sm border-0">
+    <div class="row g-0">
+        <div class="col-md-5 bg-light d-flex align-items-center justify-content-center p-4 rounded-start" style="min-height: 400px;">
+            @if (!string.IsNullOrEmpty(Model.ImageUrl))
+            {
+                <img src="@Model.ImageUrl" class="img-fluid rounded shadow-sm object-fit-contain" style="max-height: 350px;" alt="@Model.Name" />
+            }
+            else
+            {
+                <div class="text-center text-muted">
+                    <i class="far fa-image fs-1 opacity-25 d-block mb-2"></i>
+                    <span>Chưa có hình ảnh</span>
+                </div>
+            }
+        </div>
+        <div class="col-md-7">
+            <div class="card-body p-5">
+                <div class="d-flex justify-content-between align-items-start mb-3">
+                    <h2 class="card-title fw-bold mb-0">@Model.Name</h2>
+                    <span class="badge bg-primary text-white p-2 px-3 rounded-pill fs-6">Danh mục: @Model.Category?.Name</span>
+                </div>
+                
+                <h3 class="text-success fw-bold mb-4">@Model.Price.ToString("#,##0") đ</h3>
+                
+                <div class="mb-4">
+                    <h5 class="fw-semibold border-bottom pb-2 mb-3">Mô Tả</h5>
+                    <p class="text-muted" style="line-height: 1.6;">
+                        @(!string.IsNullOrEmpty(Model.Description) ? Model.Description : "Chưa có mô tả cho sản phẩm này.")
+                    </p>
+                </div>
+                
+                <hr class="my-4">
+                
+                <div class="d-flex gap-3 mt-4">
+                    <a asp-action="Update" asp-route-id="@Model.Id" class="btn btn-primary px-4 py-2 fw-semibold">
+                        <i class="fas fa-edit me-1"></i> Chỉnh sửa
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-outline-danger px-4 py-2">
+                        <i class="fas fa-trash me-1"></i> Xóa
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

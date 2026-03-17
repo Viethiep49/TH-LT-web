@@ -1,0 +1,64 @@
+@model WebsiteBanHang.Models.Product
+@using Microsoft.AspNetCore.Mvc.Rendering
+@{
+    ViewData["Title"] = "Thêm Sách Mới";
+}
+
+<div class="row layout-center justify-content-center">
+    <div class="col-md-8">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="fw-bold mb-0">Thêm Sách Mới</h2>
+            <a asp-area="Admin" asp-action="Index" class="btn btn-outline-secondary">
+               <i class="fas fa-arrow-left"></i> Quay lại danh mục
+            </a>
+        </div>
+        
+        <div class="card shadow-sm">
+            <div class="card-body p-4">
+                <form asp-action="Add" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="Name" class="form-label fw-semibold">Tên Sách</label>
+                        <input asp-for="Name" class="form-control form-control-lg" placeholder="Nhập tên sách" />
+                        <span asp-validation-for="Name" class="text-danger small"></span>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="Price" class="form-label fw-semibold">Giá (đ)</label>
+                            <input asp-for="Price" class="form-control" placeholder="0.00" />
+                            <span asp-validation-for="Price" class="text-danger small"></span>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="CategoryId" class="form-label fw-semibold">Danh Mục</label>
+                            <select asp-for="CategoryId" asp-items="ViewBag.Categories" class="form-select">
+                                <option value="">-- Chọn Danh Mục --</option>
+                            </select>
+                            <span asp-validation-for="CategoryId" class="text-danger small"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Description" class="form-label fw-semibold">Mô Tả</label>
+                        <textarea asp-for="Description" class="form-control" rows="4" placeholder="Mô tả chi tiết sách..."></textarea>
+                        <span asp-validation-for="Description" class="text-danger small"></span>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold">Hình Ảnh Bìa Sách</label>
+                        <input type="file" name="imageUrl" class="form-control" accept="image/*" />
+                        <div class="form-text">Chọn hình ảnh bìa sách chất lượng cao.</div>
+                    </div>
+
+                    <div class="d-flex gap-3 justify-content-end mt-5 border-top pt-4">
+                        <a asp-area="Admin" asp-action="Index" class="btn btn-light px-4">Hủy bỏ</a>
+                        <button type="submit" class="btn btn-primary px-4 fw-semibold">
+                            <i class="fas fa-save me-1"></i> Lưu Sách
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
