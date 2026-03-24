@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vLFQWoz5+cMkusEiF9JB+Zsn8H9D984mBWYk7SFb68bzUm390d+CG9GKoxqQ53TMd7EFq2LnOhaoJ0WEol27hw==",
+  "dgSpecHash": "ruKu980i6HFMWFBW16WTyh0o8oA/s3+6faDVIw9h6KvSgIgOOTANRQZAJ8O9t+AAKmP2iwij5spkmUJ4b34XcQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Administrator\\Downloads\\TH-LT-web-main\\TH-LT-web-main\\WebsiteBanHang\\WebsiteBanHang.csproj",
+  "projectFilePath": "M:\\TH-LT-web\\WebsiteBanHang\\WebsiteBanHang.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrator\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

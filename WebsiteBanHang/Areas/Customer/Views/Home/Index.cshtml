@@ -39,8 +39,11 @@
                         </h6>
                         <p class="text-primary fw-bold mb-0">@item.Price.ToString("#,##0") đ</p>
                     </div>
-                    <div class="card-footer bg-transparent border-0 p-3 pt-0 text-center">
-                         <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-dark btn-sm rounded-pill px-4">Chi tiết</a>
+                    <div class="card-footer bg-transparent border-0 p-3 pt-0 text-center d-flex justify-content-center gap-2">
+                         <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-dark btn-sm rounded-pill px-3">Chi tiết</a>
+                         <a asp-controller="ShoppingCart" asp-action="AddToCart" asp-route-productId="@item.Id" class="btn btn-primary btn-sm rounded-pill px-3">
+                             <i class="bi bi-cart-plus"></i> Thêm
+                         </a>
                     </div>
                 </div>
             </div>

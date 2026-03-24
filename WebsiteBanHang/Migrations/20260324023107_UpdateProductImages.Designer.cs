@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebsiteBanHang.Data;
 
@@ -11,9 +12,11 @@ using WebsiteBanHang.Data;
 namespace WebsiteBanHang.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260324023107_UpdateProductImages")]
+    partial class UpdateProductImages
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -382,7 +385,7 @@ namespace WebsiteBanHang.Migrations
                             Id = 1,
                             CategoryId = 1,
                             Description = "Cuốn sách hay nhất mọi thời đại về nghệ thuật giao tiếp.",
-                            ImageUrl = "https://placehold.jp/24/4361ee/ffffff/200x320.png?text=Dac%20Nhan%20Tam",
+                            ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/e/ec/%C4%90%E1%BA%AFc_nh%C3%A2n_t%C3%A2m.jpg",
                             Name = "Đắc Nhân Tâm",
                             Price = 85000m
                         },
@@ -391,7 +394,7 @@ namespace WebsiteBanHang.Migrations
                             Id = 2,
                             CategoryId = 2,
                             Description = "Tìm hiểu về vũ trụ từ vụ nổ Big Bang đến các lỗ đen.",
-                            ImageUrl = "https://placehold.jp/24/3f37c9/ffffff/200x320.png?text=Luoc%20Su%20Thoi%20Gian",
+                            ImageUrl = "https://thuvienhoasen.info/images/stories/luocsuthoigian-cover.jpg",
                             Name = "Lược Sử Thời Gian",
                             Price = 125000m
                         },
@@ -400,7 +403,7 @@ namespace WebsiteBanHang.Migrations
                             Id = 3,
                             CategoryId = 4,
                             Description = "Hành trình phá án của cậu bé Shinichi.",
-                            ImageUrl = "https://placehold.jp/24/4cc9f0/ffffff/200x320.png?text=Conan%20100",
+                            ImageUrl = "https://upload.wikimedia.org/wikipedia/vi/d/db/Detective_Conan_Vol_100_VN.jpg",
                             Name = "Thám Tử Lừng Danh Conan - Tập 100",
                             Price = 25000m
                         });

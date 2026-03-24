@@ -14,6 +14,8 @@ namespace WebsiteBanHang.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<ProductImage> ProductImages { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
         
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -35,7 +37,7 @@ namespace WebsiteBanHang.Data
                     Price = 85000,
                     Description = "Cuốn sách hay nhất mọi thời đại về nghệ thuật giao tiếp.",
                     CategoryId = 1,
-                    ImageUrl = "https://m.media-amazon.com/images/I/71X8k8-A-hL._AC_UF1000,1000_QL80_.jpg"
+                    ImageUrl = "https://placehold.jp/24/4361ee/ffffff/200x320.png?text=Dac%20Nhan%20Tam"
                 },
                 new Product
                 {
@@ -44,7 +46,7 @@ namespace WebsiteBanHang.Data
                     Price = 125000,
                     Description = "Tìm hiểu về vũ trụ từ vụ nổ Big Bang đến các lỗ đen.",
                     CategoryId = 2,
-                    ImageUrl = "https://m.media-amazon.com/images/I/81S6-n-8K5L._AC_UF1000,1000_QL80_.jpg"
+                    ImageUrl = "https://placehold.jp/24/3f37c9/ffffff/200x320.png?text=Luoc%20Su%20Thoi%20Gian"
                 },
                 new Product
                 {
@@ -53,7 +55,7 @@ namespace WebsiteBanHang.Data
                     Price = 25000,
                     Description = "Hành trình phá án của cậu bé Shinichi.",
                     CategoryId = 4,
-                    ImageUrl = "https://product.hstatic.net/200000343865/product/100_072df29c782b4923bd09f90be0543f30.jpg"
+                    ImageUrl = "https://placehold.jp/24/4cc9f0/ffffff/200x320.png?text=Conan%20100"
                 }
             );
         }

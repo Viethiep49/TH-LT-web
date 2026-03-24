@@ -12,13 +12,29 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options => 
+{
+    options.SignIn.RequireConfirmedAccount = true;
+    options.Password.RequireDigit = false;
+    options.Password.RequiredLength = 3;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequireLowercase = false;
+})
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders()
     .AddDefaultUI();
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
 
 builder.Services.AddScoped<IProductRepository, EFProductRepository>();
 builder.Services.AddScoped<ICategoryRepository, EFCategoryRepository>();
@@ -47,6 +63,7 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseSession();
 
 app.MapRazorPages();
 
@@ -76,21 +93,38 @@ async Task SeedDatabase(IServiceProvider serviceProvider)
     }
 
     // Seed Admin User
-    var adminEmail = "admin@bookstore.com";
-    var adminUser = await userManager.FindByEmailAsync(adminEmail);
+    var adminUser = await userManager.FindByNameAsync("admin");
     if (adminUser == null)
     {
         adminUser = new ApplicationUser
         {
-            UserName = adminEmail,
-            Email = adminEmail,
+            UserName = "admin",
+            Email = "admin@bookstore.com",
             FullName = "Admin Bookstore",
             EmailConfirmed = true
         };
-        var result = await userManager.CreateAsync(adminUser, "Admin@123");
+        var result = await userManager.CreateAsync(adminUser, "admin");
         if (result.Succeeded)
         {
             await userManager.AddToRoleAsync(adminUser, SD.Role_Admin);
+        }
+    }
+
+    // Seed Customer User
+    var customerUser = await userManager.FindByNameAsync("customer");
+    if (customerUser == null)
+    {
+        customerUser = new ApplicationUser
+        {
+            UserName = "customer",
+            Email = "customer@bookstore.com",
+            FullName = "Khách Hàng Mới",
+            EmailConfirmed = true
+        };
+        var result = await userManager.CreateAsync(customerUser, "customer");
+        if (result.Succeeded)
+        {
+            await userManager.AddToRoleAsync(customerUser, SD.Role_Customer);
         }
     }
 }

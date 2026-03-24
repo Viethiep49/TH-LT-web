@@ -8410,11 +8410,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrator\\Downloads\\TH-LT-web-main\\TH-LT-web-main\\WebsiteBanHang\\WebsiteBanHang.csproj",
+      "projectUniqueName": "M:\\TH-LT-web\\WebsiteBanHang\\WebsiteBanHang.csproj",
       "projectName": "WebsiteBanHang",
-      "projectPath": "C:\\Users\\Administrator\\Downloads\\TH-LT-web-main\\TH-LT-web-main\\WebsiteBanHang\\WebsiteBanHang.csproj",
+      "projectPath": "M:\\TH-LT-web\\WebsiteBanHang\\WebsiteBanHang.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrator\\Downloads\\TH-LT-web-main\\TH-LT-web-main\\WebsiteBanHang\\obj\\",
+      "outputPath": "M:\\TH-LT-web\\WebsiteBanHang\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -8437,6 +8437,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -8497,7 +8502,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
